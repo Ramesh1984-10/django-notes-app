@@ -20,7 +20,7 @@ pipeline {
             steps{
                 echo "Push the docker image to docker hub"
                 sh "docker tag myimage rameshk1984/kubernetesproject:latest"
-                withCredentials([usernamePassword(credentialsId:"dockercred",passwordVariable:"dockerpass",usernameVariable:"dockeruser")]){
+                withCredentials([usernamePassword(credentialsId:"dockerhub",passwordVariable:"dockerpass",usernameVariable:"dockeruser")]){
                 sh "docker login -u ${env.dockeruser} -p ${env.dockerpass}" 
                 sh "docker push rameshk1984/kubernetesproject:latest"
                 }
