@@ -22,7 +22,7 @@ pipeline {
                 sh "docker tag myimage rameshk1984/myimage:latest"
                 withCredentials([usernamePassword(credentialsId:"dockercred",passwordVariable:"dockerpass",usernameVariable:"dockeruser")]){
                 sh "docker login -u ${env.dockeruser} -p ${env.dockerpass}" 
-                sh "docker push rameshk1984/myimage:latest"
+                sh "docker push rameshk1984/kubernetesproject:latest"
                 }
                
             }
